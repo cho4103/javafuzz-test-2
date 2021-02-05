@@ -1,4 +1,4 @@
-package com.gitlab.javafuzz.core;
+package dev.fuzzit.javafuzz.core;
 
 import java.io.File;
 import java.io.FileNotFoundException;

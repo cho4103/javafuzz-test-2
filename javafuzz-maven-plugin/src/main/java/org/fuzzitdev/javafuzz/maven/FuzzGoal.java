@@ -1,4 +1,4 @@
-package com.gitlab.javafuzz.maven;
+package org.fuzzitdev.javafuzz.maven;
 
 
 import org.apache.maven.artifact.DependencyResolutionRequiredException;
