@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <name>javafuzz</name>
+    <description>Javafuzz - Coverage Guided Fuzzing for Java</description>
+    <url>https://gitlab.com/gitlab-org/security-products/analyzers/fuzzers/javafuzz/</url>
+    <developers>
+        <developer>
+            <name>GitLab</name>
+            <email>ypats@gitlab.com</email>
+            <url>https://gitlab.com</url>
+        </developer>
+    </developers>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+            <comments>A business-friendly OSS license</comments>
+        </license>
+    </licenses>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+    </properties>
+    <groupId>com.gitlab.javafuzz</groupId>
+    <artifactId>javafuzz</artifactId>
+    <packaging>pom</packaging>
+    <version>1.24</version>
+    <modules>
+        <module>javafuzz-maven-plugin</module>
+        <module>core</module>
+    </modules>
+    <scm>
+        <connection>scm:git:git@gitlab.com:gitlab-org/security-products/analyzers/fuzzers/javafuzz.git</connection>
+        <url>https://gitlab.com/gitlab-org/security-products/analyzers/fuzzers/javafuzz/</url>
+      <tag>javafuzz-1.24</tag>
+  </scm>
+    <repositories>
+        <repository>
+            <id>gitlab-maven</id>
+            <url>https://gitlab.com/api/v4/projects/19871573/packages/maven</url>
+        </repository>
+    </repositories>
+    <distributionManagement>
+        <repository>
+            <id>gitlab-maven</id>
+            <url>https://gitlab.com/api/v4/projects/19871573/packages/maven</url>
+        </repository>
+        <snapshotRepository>
+            <id>gitlab-maven</id>
+            <url>https://gitlab.com/api/v4/projects/19871573/packages/maven</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <profiles>
+        <profile>
+            <id>release-profile</id>
+    <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-gpg-plugin</artifactId>
+                    <version>1.5</version>
+                    <executions>
+                        <execution>
+                            <id>sign-artifacts</id>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>sign</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+    </build>
+        </profile>
+    </profiles>
+</project>
